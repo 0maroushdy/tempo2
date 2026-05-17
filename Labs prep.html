@@ -1,0 +1,1514 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>CC451 — Oral Discussion Prep</title>
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700&family=Outfit:wght@300;400;500;600;700;800;900&family=Source+Serif+4:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg: #0c0e13;
+  --surface: #14171e;
+  --surface2: #1a1e28;
+  --surface3: #222736;
+  --border: #2a3040;
+  --text: #e2e6ee;
+  --text-dim: #8690a5;
+  --accent: #6ee7b7;
+  --accent2: #34d399;
+  --accent-glow: rgba(110, 231, 183, 0.15);
+  --warning: #fbbf24;
+  --danger: #f87171;
+  --info: #60a5fa;
+  --lab1: #f472b6;
+  --lab2: #a78bfa;
+  --lab3: #60a5fa;
+  --lab4: #6ee7b7;
+  --code-bg: #0d1117;
+  --mono: 'JetBrains Mono', monospace;
+  --display: 'Outfit', sans-serif;
+  --body: 'Source Serif 4', Georgia, serif;
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: var(--body);
+  background: var(--bg);
+  color: var(--text);
+  line-height: 1.7;
+  min-height: 100vh;
+}
+
+/* ── HERO ─────────────────────────── */
+.hero {
+  position: relative;
+  padding: 80px 40px 60px;
+  text-align: center;
+  overflow: hidden;
+  border-bottom: 1px solid var(--border);
+}
+
+.hero::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -20%;
+  width: 140%;
+  height: 200%;
+  background: radial-gradient(ellipse at 30% 20%, rgba(110,231,183,0.06) 0%, transparent 50%),
+              radial-gradient(ellipse at 70% 80%, rgba(164,139,250,0.05) 0%, transparent 50%);
+  pointer-events: none;
+}
+
+.hero-badge {
+  display: inline-block;
+  font-family: var(--mono);
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(--accent);
+  background: var(--accent-glow);
+  border: 1px solid rgba(110,231,183,0.25);
+  padding: 6px 16px;
+  border-radius: 20px;
+  margin-bottom: 24px;
+}
+
+.hero h1 {
+  font-family: var(--display);
+  font-weight: 900;
+  font-size: clamp(32px, 5vw, 56px);
+  line-height: 1.1;
+  letter-spacing: -1px;
+  background: linear-gradient(135deg, #e2e6ee 0%, #6ee7b7 50%, #a78bfa 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  margin-bottom: 16px;
+}
+
+.hero-sub {
+  font-family: var(--display);
+  font-size: 18px;
+  color: var(--text-dim);
+  font-weight: 400;
+  max-width: 600px;
+  margin: 0 auto 32px;
+}
+
+/* ── STRATEGY BOX ─────────────────── */
+.strategy-box {
+  max-width: 780px;
+  margin: 0 auto;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 28px 32px;
+  text-align: left;
+}
+
+.strategy-box h3 {
+  font-family: var(--display);
+  font-weight: 700;
+  font-size: 16px;
+  color: var(--warning);
+  margin-bottom: 12px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.strategy-box p {
+  font-size: 15px;
+  color: var(--text-dim);
+  margin-bottom: 10px;
+}
+
+.strategy-box ul {
+  list-style: none;
+  padding: 0;
+}
+
+.strategy-box li {
+  position: relative;
+  padding-left: 22px;
+  font-size: 14.5px;
+  color: var(--text);
+  margin-bottom: 8px;
+}
+
+.strategy-box li::before {
+  content: '→';
+  position: absolute;
+  left: 0;
+  color: var(--accent);
+  font-family: var(--mono);
+  font-weight: 700;
+}
+
+/* ── NAV ──────────────────────────── */
+.tab-nav {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background: rgba(12,14,19,0.92);
+  backdrop-filter: blur(12px);
+  border-bottom: 1px solid var(--border);
+  display: flex;
+  justify-content: center;
+  gap: 4px;
+  padding: 12px 16px;
+}
+
+.tab-btn {
+  font-family: var(--display);
+  font-weight: 600;
+  font-size: 14px;
+  padding: 10px 22px;
+  border: 1px solid transparent;
+  border-radius: 8px;
+  background: transparent;
+  color: var(--text-dim);
+  cursor: pointer;
+  transition: all 0.25s;
+  white-space: nowrap;
+}
+
+.tab-btn:hover {
+  background: var(--surface);
+  color: var(--text);
+}
+
+.tab-btn.active {
+  border-color: var(--accent);
+  color: var(--accent);
+  background: var(--accent-glow);
+}
+
+.tab-btn .dot {
+  display: inline-block;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  margin-right: 8px;
+  vertical-align: middle;
+}
+
+/* ── CONTAINER ────────────────────── */
+.container {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 40px 24px 100px;
+}
+
+.lab-panel {
+  display: none;
+  animation: fadeIn 0.3s ease;
+}
+
+.lab-panel.active {
+  display: block;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(8px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* ── LAB HEADER ───────────────────── */
+.lab-header {
+  margin-bottom: 40px;
+}
+
+.lab-number {
+  font-family: var(--mono);
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  margin-bottom: 8px;
+}
+
+.lab-header h2 {
+  font-family: var(--display);
+  font-weight: 800;
+  font-size: 32px;
+  line-height: 1.2;
+  margin-bottom: 12px;
+}
+
+.lab-header p {
+  font-size: 16px;
+  color: var(--text-dim);
+  max-width: 700px;
+}
+
+/* ── SECTION ──────────────────────── */
+.section {
+  margin-bottom: 32px;
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  overflow: hidden;
+  background: var(--surface);
+}
+
+.section-header {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 18px 24px;
+  cursor: pointer;
+  user-select: none;
+  transition: background 0.2s;
+}
+
+.section-header:hover {
+  background: var(--surface2);
+}
+
+.section-icon {
+  font-size: 20px;
+  flex-shrink: 0;
+}
+
+.section-header h3 {
+  font-family: var(--display);
+  font-weight: 700;
+  font-size: 16px;
+  flex: 1;
+}
+
+.section-tag {
+  font-family: var(--mono);
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  padding: 4px 10px;
+  border-radius: 6px;
+  background: var(--surface3);
+  color: var(--text-dim);
+}
+
+.chevron {
+  font-size: 14px;
+  color: var(--text-dim);
+  transition: transform 0.3s;
+  font-family: var(--mono);
+}
+
+.section.open .chevron {
+  transform: rotate(180deg);
+}
+
+.section-body {
+  display: none;
+  padding: 0 24px 24px;
+  border-top: 1px solid var(--border);
+}
+
+.section.open .section-body {
+  display: block;
+}
+
+/* ── CONTENT ──────────────────────── */
+.concept {
+  margin: 20px 0;
+}
+
+.concept h4 {
+  font-family: var(--display);
+  font-weight: 700;
+  font-size: 15px;
+  color: var(--accent2);
+  margin-bottom: 8px;
+}
+
+.concept p, .section-body > p {
+  font-size: 15px;
+  line-height: 1.75;
+  color: var(--text);
+  margin-bottom: 12px;
+}
+
+pre {
+  background: var(--code-bg);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 16px 20px;
+  overflow-x: auto;
+  margin: 14px 0;
+  font-family: var(--mono);
+  font-size: 13px;
+  line-height: 1.6;
+  color: #c9d1d9;
+}
+
+code {
+  font-family: var(--mono);
+  font-size: 13px;
+  background: var(--surface3);
+  padding: 2px 6px;
+  border-radius: 4px;
+  color: var(--accent);
+}
+
+pre code {
+  background: none;
+  padding: 0;
+  color: inherit;
+}
+
+/* ── Q&A CARDS ────────────────────── */
+.qa-card {
+  background: var(--surface2);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  margin: 16px 0;
+  overflow: hidden;
+}
+
+.qa-q {
+  padding: 16px 20px;
+  cursor: pointer;
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  transition: background 0.2s;
+}
+
+.qa-q:hover {
+  background: var(--surface3);
+}
+
+.qa-badge {
+  font-family: var(--mono);
+  font-weight: 700;
+  font-size: 11px;
+  color: var(--bg);
+  background: var(--warning);
+  padding: 2px 8px;
+  border-radius: 4px;
+  flex-shrink: 0;
+  margin-top: 2px;
+}
+
+.qa-q-text {
+  font-family: var(--display);
+  font-weight: 600;
+  font-size: 14.5px;
+  flex: 1;
+}
+
+.qa-toggle {
+  font-size: 13px;
+  color: var(--text-dim);
+  font-family: var(--mono);
+  transition: transform 0.3s;
+  flex-shrink: 0;
+  margin-top: 2px;
+}
+
+.qa-card.open .qa-toggle {
+  transform: rotate(180deg);
+}
+
+.qa-a {
+  display: none;
+  padding: 0 20px 20px 44px;
+  font-size: 14.5px;
+  line-height: 1.75;
+  color: var(--text);
+  border-top: 1px solid var(--border);
+}
+
+.qa-card.open .qa-a {
+  display: block;
+  padding-top: 16px;
+}
+
+/* ── TIP CALLOUTS ─────────────────── */
+.callout {
+  border-radius: 10px;
+  padding: 16px 20px;
+  margin: 16px 0;
+  font-size: 14px;
+  line-height: 1.7;
+  display: flex;
+  gap: 12px;
+  align-items: flex-start;
+}
+
+.callout-icon {
+  font-size: 18px;
+  flex-shrink: 0;
+  margin-top: 1px;
+}
+
+.callout.tip {
+  background: rgba(110,231,183,0.08);
+  border: 1px solid rgba(110,231,183,0.2);
+}
+
+.callout.warn {
+  background: rgba(251,191,36,0.08);
+  border: 1px solid rgba(251,191,36,0.2);
+}
+
+.callout.critical {
+  background: rgba(248,113,113,0.08);
+  border: 1px solid rgba(248,113,113,0.2);
+}
+
+.callout.info {
+  background: rgba(96,165,250,0.08);
+  border: 1px solid rgba(96,165,250,0.2);
+}
+
+/* ── DIAGRAM BOX ──────────────────── */
+.diagram {
+  background: var(--code-bg);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 20px 24px;
+  margin: 16px 0;
+  font-family: var(--mono);
+  font-size: 12.5px;
+  line-height: 1.5;
+  white-space: pre;
+  overflow-x: auto;
+  color: var(--text-dim);
+}
+
+/* ── VIDEO EMBEDS ─────────────────── */
+.video-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 16px;
+  margin: 16px 0;
+}
+
+.video-card {
+  background: var(--surface2);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  overflow: hidden;
+  transition: border-color 0.2s;
+}
+
+.video-card:hover {
+  border-color: var(--accent);
+}
+
+.video-card iframe {
+  width: 100%;
+  aspect-ratio: 16/9;
+  display: block;
+  border: none;
+}
+
+.video-card .vid-label {
+  padding: 10px 14px;
+  font-family: var(--display);
+  font-weight: 600;
+  font-size: 13px;
+  color: var(--text-dim);
+}
+
+/* ── CHEAT SHEET TABLE ────────────── */
+.sheet-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 16px 0;
+  font-size: 14px;
+}
+
+.sheet-table th {
+  font-family: var(--display);
+  font-weight: 700;
+  font-size: 12px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  text-align: left;
+  padding: 10px 14px;
+  border-bottom: 2px solid var(--border);
+  color: var(--accent);
+}
+
+.sheet-table td {
+  padding: 10px 14px;
+  border-bottom: 1px solid var(--border);
+  vertical-align: top;
+}
+
+.sheet-table tr:hover td {
+  background: var(--surface2);
+}
+
+/* ── PROGRESS TRACKER ─────────────── */
+.progress-bar-outer {
+  background: var(--surface3);
+  border-radius: 6px;
+  height: 6px;
+  margin: 24px 0 8px;
+  overflow: hidden;
+}
+
+.progress-bar-inner {
+  height: 100%;
+  border-radius: 6px;
+  background: linear-gradient(90deg, var(--accent2), var(--accent));
+  transition: width 0.5s ease;
+}
+
+.progress-label {
+  font-family: var(--mono);
+  font-size: 11px;
+  color: var(--text-dim);
+  text-align: right;
+}
+
+/* ── FOOTER ───────────────────────── */
+.site-footer {
+  text-align: center;
+  padding: 40px 20px;
+  border-top: 1px solid var(--border);
+  font-family: var(--mono);
+  font-size: 12px;
+  color: var(--text-dim);
+}
+
+/* ── RESPONSIVE ───────────────────── */
+@media (max-width: 640px) {
+  .tab-nav {
+    overflow-x: auto;
+    justify-content: flex-start;
+    padding: 10px 12px;
+    gap: 6px;
+  }
+  .tab-btn { font-size: 12px; padding: 8px 14px; }
+  .hero { padding: 50px 20px 40px; }
+  .container { padding: 24px 14px 80px; }
+  .section-header { padding: 14px 16px; }
+  .section-body { padding: 0 16px 16px; }
+  .strategy-box { padding: 20px; }
+}
+</style>
+</head>
+<body>
+
+<!-- ═══════════════════════════════════════════════════ HERO ═══ -->
+<header class="hero">
+  <div class="hero-badge">CC451 — Computer Networks</div>
+  <h1>Oral Discussion<br>Preparation Guide</h1>
+  <p class="hero-sub">All 4 labs · Solution walkthroughs · Expected questions · Prof. Noha's perspective</p>
+
+  <div class="strategy-box">
+    <h3>🎯 What Prof. Noha Wants to Hear</h3>
+    <p>An oral discussion replaces attendance marks — she wants to verify you <strong>truly understood</strong> the labs, not just submitted them. She's looking for:</p>
+    <ul>
+      <li><strong>Conceptual depth</strong> — explain <em>why</em>, not just <em>what</em>. "We used TCP because it's reliable" is weak. "TCP guarantees delivery via 3-way handshake and retransmission, which our chat server needed for message integrity" is strong.</li>
+      <li><strong>Code-to-theory mapping</strong> — connect every line of code to a textbook concept (socket API → transport layer, SMTP → application layer, etc.)</li>
+      <li><strong>Tracing a packet's journey</strong> — be able to walk through what happens from the moment you call <code>send()</code> to when data arrives at the receiver.</li>
+      <li><strong>Failure scenarios</strong> — what happens if a packet is lost? Corrupted? Duplicated? If the server crashes?</li>
+      <li><strong>Comparisons</strong> — TCP vs UDP, SMTP vs IMAP, HTTP/1.0 vs 1.1, Stop-and-Wait vs Go-Back-N.</li>
+    </ul>
+  </div>
+</header>
+
+<!-- ═══════════════════════════════════════════════════ TABS ═══ -->
+<nav class="tab-nav">
+  <button class="tab-btn active" onclick="switchTab('lab1')"><span class="dot" style="background:var(--lab1)"></span>Lab 1 — Sockets</button>
+  <button class="tab-btn" onclick="switchTab('lab2')"><span class="dot" style="background:var(--lab2)"></span>Lab 2 — Email</button>
+  <button class="tab-btn" onclick="switchTab('lab3')"><span class="dot" style="background:var(--lab3)"></span>Lab 3 — Wireshark</button>
+  <button class="tab-btn" onclick="switchTab('lab4')"><span class="dot" style="background:var(--lab4)"></span>Lab 4 — RUDP + HTTP</button>
+</nav>
+
+<main class="container">
+
+<!-- ╔═══════════════════════════════════════════════════════════╗ -->
+<!-- ║                       LAB 1 — SOCKETS                    ║ -->
+<!-- ╚═══════════════════════════════════════════════════════════╝ -->
+<div id="lab1" class="lab-panel active">
+  <div class="lab-header">
+    <div class="lab-number" style="color:var(--lab1)">Lab 01</div>
+    <h2>TCP & UDP Socket Programming</h2>
+    <p>Built a TCP server, a UDP server, and a unified client in Python. The servers process messages based on a command character prefix, demonstrating the fundamental socket API and the differences between connection-oriented and connectionless transport.</p>
+  </div>
+
+  <!-- OVERVIEW -->
+  <div class="section open">
+    <div class="section-header" onclick="toggleSection(this)">
+      <span class="section-icon">📋</span>
+      <h3>Your Solution Overview</h3>
+      <span class="section-tag">Review</span>
+      <span class="chevron">▼</span>
+    </div>
+    <div class="section-body">
+      <div class="concept">
+        <h4>Architecture: 3 files, 2 protocols</h4>
+        <p>You built <code>tcp_server.py</code>, <code>udp_server.py</code>, and <code>client.py</code>. Both servers share the same <code>process_message()</code> logic — the first character is a command (A = sort descending, C = sort ascending, D = uppercase), and the rest is data. The client takes a CLI argument (<code>tcp</code> or <code>udp</code>) to choose which mode to run.</p>
+      </div>
+      <div class="concept">
+        <h4>TCP Server — Key Design Choices</h4>
+        <p>You used <code>socket.AF_INET</code> + <code>socket.SOCK_STREAM</code> for TCP. The server calls <code>bind()</code>, <code>listen()</code>, then loops on <code>accept()</code> — each accepted connection spawns a <strong>daemon thread</strong> via <code>threading.Thread</code>. This means the server handles <strong>multiple concurrent clients</strong>. Each thread runs <code>handle_client()</code> which loops on <code>recv(1024)</code> until the client disconnects (empty data or <code>ConnectionResetError</code>).</p>
+        <p>You also set <code>SO_REUSEADDR</code> — this prevents "Address already in use" errors when restarting the server quickly (allows reusing a port in TIME_WAIT state).</p>
+      </div>
+      <div class="concept">
+        <h4>UDP Server — Key Design Choices</h4>
+        <p>Used <code>socket.SOCK_DGRAM</code>. No <code>listen()</code>, no <code>accept()</code>, no threads. Just <code>bind()</code> then loop on <code>recvfrom(1024)</code>. Each datagram is self-contained — the server processes it and sends the response back to the client's address using <code>sendto()</code>. No connection state is maintained.</p>
+      </div>
+      <div class="concept">
+        <h4>Client — Unified Interface</h4>
+        <p>TCP mode: <code>connect()</code> → loop of <code>sendall()</code> / <code>recv()</code> → persistent connection until user types "quit".<br>
+        UDP mode: no <code>connect()</code> — just <code>sendto()</code> / <code>recvfrom()</code> each message independently.</p>
+      </div>
+      <div class="diagram">CLIENT                          TCP SERVER
+  |                               |
+  |──── connect() ───────────────►|  accept() → new thread
+  |◄─── connection established ───|
+  |                               |
+  |──── sendall("Ahello") ──────►|  recv() → process: sort desc → "ollhe"
+  |◄──── "ollhe" ────────────────|  sendall()
+  |                               |
+  |──── sendall("Dworld") ──────►|  recv() → process: uppercase → "WORLD"
+  |◄──── "WORLD" ────────────────|
+  |                               |
+  |──── [close] ────────────────►|  recv() returns b'' → thread exits
+
+CLIENT                          UDP SERVER
+  |                               |
+  |── sendto("Chello") ─────────►|  recvfrom() → sort asc → "ehllo"
+  |◄── "ehllo" ──────────────────|  sendto()
+  |                               |
+  (no connection state between messages)</div>
+    </div>
+  </div>
+
+  <!-- CORE CONCEPTS -->
+  <div class="section">
+    <div class="section-header" onclick="toggleSection(this)">
+      <span class="section-icon">🧠</span>
+      <h3>Core Concepts to Know Cold</h3>
+      <span class="section-tag">Theory</span>
+      <span class="chevron">▼</span>
+    </div>
+    <div class="section-body">
+      <div class="concept">
+        <h4>The Socket API (Berkeley Sockets)</h4>
+        <p>A <strong>socket</strong> is a software abstraction for a network endpoint, identified by (IP address, port number, protocol). It's the interface between the application layer and the transport layer. Python's <code>socket</code> module wraps the POSIX C socket API.</p>
+        <table class="sheet-table">
+          <tr><th>Call</th><th>TCP</th><th>UDP</th></tr>
+          <tr><td><code>socket()</code></td><td>Creates endpoint</td><td>Creates endpoint</td></tr>
+          <tr><td><code>bind()</code></td><td>Assigns address/port</td><td>Assigns address/port</td></tr>
+          <tr><td><code>listen()</code></td><td>Marks as passive (server)</td><td>N/A</td></tr>
+          <tr><td><code>accept()</code></td><td>Blocks until client connects → returns new socket</td><td>N/A</td></tr>
+          <tr><td><code>connect()</code></td><td>Initiates 3-way handshake</td><td>Optional (sets default dest)</td></tr>
+          <tr><td><code>send()/recv()</code></td><td>Byte-stream oriented</td><td>Use sendto()/recvfrom()</td></tr>
+          <tr><td><code>close()</code></td><td>FIN teardown</td><td>Just releases resource</td></tr>
+        </table>
+      </div>
+      <div class="concept">
+        <h4>TCP vs UDP — Complete Comparison</h4>
+        <table class="sheet-table">
+          <tr><th>Feature</th><th>TCP</th><th>UDP</th></tr>
+          <tr><td>Connection</td><td>Connection-oriented (3-way handshake)</td><td>Connectionless</td></tr>
+          <tr><td>Reliability</td><td>Guaranteed delivery, retransmission</td><td>Best-effort, no guarantees</td></tr>
+          <tr><td>Ordering</td><td>In-order delivery (sequence numbers)</td><td>No ordering</td></tr>
+          <tr><td>Flow Control</td><td>Yes (receiver window)</td><td>No</td></tr>
+          <tr><td>Congestion Control</td><td>Yes (slow start, AIMD)</td><td>No</td></tr>
+          <tr><td>Overhead</td><td>20-byte header minimum</td><td>8-byte header</td></tr>
+          <tr><td>Speed</td><td>Slower (reliability overhead)</td><td>Faster (minimal overhead)</td></tr>
+          <tr><td>Use Cases</td><td>HTTP, email, file transfer</td><td>DNS, video streaming, gaming</td></tr>
+          <tr><td>Socket Type</td><td><code>SOCK_STREAM</code></td><td><code>SOCK_DGRAM</code></td></tr>
+          <tr><td>Data Boundary</td><td>Byte stream (no boundaries)</td><td>Message-oriented (boundaries preserved)</td></tr>
+        </table>
+      </div>
+      <div class="concept">
+        <h4>AF_INET and Port Numbers</h4>
+        <p><code>AF_INET</code> = IPv4 address family. Port numbers (0–65535) identify processes: well-known (0–1023), registered (1024–49151), dynamic/ephemeral (49152–65535). Your servers used 65432/65433 (dynamic range). The OS assigns an ephemeral port to the client automatically.</p>
+      </div>
+      <div class="concept">
+        <h4>Threading and Concurrency</h4>
+        <p>Your TCP server uses threads so multiple clients can connect simultaneously. Each <code>accept()</code> returns a new socket dedicated to that client. Without threads, the server would block on one client's <code>recv()</code> and couldn't handle others. The <code>daemon=True</code> flag means threads die when the main thread exits.</p>
+        <p>UDP doesn't need threads for this lab because it's message-oriented — <code>recvfrom()</code> handles any sender's datagram, processes it, and responds immediately. There's no persistent per-client state.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- EXPECTED QUESTIONS -->
+  <div class="section">
+    <div class="section-header" onclick="toggleSection(this)">
+      <span class="section-icon">❓</span>
+      <h3>Expected Discussion Questions</h3>
+      <span class="section-tag">Q&A</span>
+      <span class="chevron">▼</span>
+    </div>
+    <div class="section-body">
+      <div class="qa-card">
+        <div class="qa-q" onclick="toggleQA(this)">
+          <span class="qa-badge">Q1</span>
+          <span class="qa-q-text">What happens under the hood when the TCP client calls <code>connect()</code>?</span>
+          <span class="qa-toggle">▼</span>
+        </div>
+        <div class="qa-a">The OS initiates a <strong>3-way handshake</strong>: (1) Client sends a SYN segment with a random initial sequence number. (2) Server's <code>accept()</code> unblocks, and the kernel replies with SYN-ACK containing its own ISN and ack = client ISN + 1. (3) Client sends ACK with ack = server ISN + 1. After this, both sides enter the ESTABLISHED state. In our code, <code>connect()</code> blocks until this completes.</div>
+      </div>
+      <div class="qa-card">
+        <div class="qa-q" onclick="toggleQA(this)">
+          <span class="qa-badge">Q2</span>
+          <span class="qa-q-text">Why does <code>accept()</code> return a <em>new</em> socket? Why not reuse the listening socket?</span>
+          <span class="qa-toggle">▼</span>
+        </div>
+        <div class="qa-a">The listening socket's job is to wait for new connections — it identifies the server's (IP, port). Each accepted connection needs its own socket to track that specific client's state (sequence numbers, buffer, etc.). TCP uses a 4-tuple (src IP, src port, dst IP, dst port) for demultiplexing — two different clients connecting to the same server port get separate sockets because their source IP/port differ.</div>
+      </div>
+      <div class="qa-card">
+        <div class="qa-q" onclick="toggleQA(this)">
+          <span class="qa-badge">Q3</span>
+          <span class="qa-q-text">What is <code>SO_REUSEADDR</code> and why did you use it?</span>
+          <span class="qa-toggle">▼</span>
+        </div>
+        <div class="qa-a">When a TCP connection closes, the port enters a <strong>TIME_WAIT</strong> state for ~2 minutes (to handle delayed packets). Without <code>SO_REUSEADDR</code>, trying to restart the server during TIME_WAIT gives "Address already in use" error. This option tells the OS to allow binding to a port that's still in TIME_WAIT.</div>
+      </div>
+      <div class="qa-card">
+        <div class="qa-q" onclick="toggleQA(this)">
+          <span class="qa-badge">Q4</span>
+          <span class="qa-q-text">Can UDP guarantee that the message arrives? What if it's lost?</span>
+          <span class="qa-toggle">▼</span>
+        </div>
+        <div class="qa-a">No. UDP provides <strong>no delivery guarantee</strong>. If a datagram is lost in the network (router drops it due to congestion, bit error, etc.), neither the sender nor receiver is notified. The client's <code>recvfrom()</code> would block forever waiting for a response that never comes. To handle this, you'd need to add application-level retransmission and timeouts — which is exactly what Lab 4 (RUDP) does.</div>
+      </div>
+      <div class="qa-card">
+        <div class="qa-q" onclick="toggleQA(this)">
+          <span class="qa-badge">Q5</span>
+          <span class="qa-q-text">What's the difference between <code>send()</code>/<code>recv()</code> and <code>sendto()</code>/<code>recvfrom()</code>?</span>
+          <span class="qa-toggle">▼</span>
+        </div>
+        <div class="qa-a"><code>send()/recv()</code> work on <strong>connected</strong> sockets (TCP, or UDP after <code>connect()</code>) — the destination is already known. <code>sendto()/recvfrom()</code> specify the destination address with each call — required for connectionless UDP where you might send to different addresses. <code>recvfrom()</code> also returns the sender's address, which the UDP server needs to send the reply back.</div>
+      </div>
+      <div class="qa-card">
+        <div class="qa-q" onclick="toggleQA(this)">
+          <span class="qa-badge">Q6</span>
+          <span class="qa-q-text">What does <code>recv(1024)</code> actually do? Is it guaranteed to return 1024 bytes?</span>
+          <span class="qa-toggle">▼</span>
+        </div>
+        <div class="qa-a">No! <code>recv(1024)</code> reads <strong>up to</strong> 1024 bytes from the kernel's receive buffer. TCP is a byte stream — data might arrive in chunks of any size. You could send 100 bytes in one <code>send()</code> and the receiver might get them across two <code>recv()</code> calls (e.g., 60 + 40). For guaranteed delivery of complete messages, you need a framing protocol (e.g., length prefix, delimiter). Our lab's simple messages fit in one segment, so this wasn't an issue.</div>
+      </div>
+      <div class="qa-card">
+        <div class="qa-q" onclick="toggleQA(this)">
+          <span class="qa-badge">Q7</span>
+          <span class="qa-q-text">Why did you use threads for TCP but not for UDP?</span>
+          <span class="qa-toggle">▼</span>
+        </div>
+        <div class="qa-a">TCP is connection-oriented — each client has a persistent connection with state, and <code>recv()</code> blocks. Without threads, handling one client would block all others. UDP is stateless and message-oriented — each <code>recvfrom()</code> gets a complete datagram from any sender, processes it immediately, and responds. No blocking on a specific client, so one loop handles all clients sequentially.</div>
+      </div>
+      <div class="qa-card">
+        <div class="qa-q" onclick="toggleQA(this)">
+          <span class="qa-badge">Q8</span>
+          <span class="qa-q-text">What is multiplexing and demultiplexing at the transport layer?</span>
+          <span class="qa-toggle">▼</span>
+        </div>
+        <div class="qa-a"><strong>Multiplexing</strong> = multiple application processes share one IP address, differentiated by port numbers. Outgoing data from different sockets is tagged with source/destination ports and sent through the same network interface. <strong>Demultiplexing</strong> = the transport layer routes incoming segments to the correct socket. UDP uses (dst IP, dst port) — all datagrams to that port go to the same socket. TCP uses the full 4-tuple (src IP, src port, dst IP, dst port) — different clients get routed to different sockets even on the same server port.</div>
+      </div>
+
+      <div class="callout warn">
+        <span class="callout-icon">⚡</span>
+        <div><strong>Pro tip for the discussion:</strong> If asked "what protocol would you choose for X?" — always justify with trade-offs. For a chat app: TCP for message delivery guarantees. For a live video call: UDP for low latency (dropped frames are better than delayed ones). For DNS: UDP for speed (short queries), with TCP fallback for large responses.</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- VIDEOS -->
+  <div class="section">
+    <div class="section-header" onclick="toggleSection(this)">
+      <span class="section-icon">📺</span>
+      <h3>Recommended Videos</h3>
+      <span class="section-tag">Watch</span>
+      <span class="chevron">▼</span>
+    </div>
+    <div class="section-body">
+      <div class="video-grid">
+        <div class="video-card">
+          <iframe src="https://www.youtube.com/embed/uwoD5YsGACg" loading="lazy" allow="accelerometer; autoplay; encrypted-media; gyroscope" allowfullscreen></iframe>
+          <div class="vid-label">TCP vs UDP — Key Differences</div>
+        </div>
+        <div class="video-card">
+          <iframe src="https://www.youtube.com/embed/FsAfMkTFiQ4" loading="lazy" allow="accelerometer; autoplay; encrypted-media; gyroscope" allowfullscreen></iframe>
+          <div class="vid-label">Socket Programming Explained</div>
+        </div>
+        <div class="video-card">
+          <iframe src="https://www.youtube.com/embed/xMtP5ZB3wSk" loading="lazy" allow="accelerometer; autoplay; encrypted-media; gyroscope" allowfullscreen></iframe>
+          <div class="vid-label">TCP 3-Way Handshake</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<!-- ╔═══════════════════════════════════════════════════════════╗ -->
+<!-- ║                      LAB 2 — EMAIL                       ║ -->
+<!-- ╚═══════════════════════════════════════════════════════════╝ -->
+<div id="lab2" class="lab-panel">
+  <div class="lab-header">
+    <div class="lab-number" style="color:var(--lab2)">Lab 02</div>
+    <h2>SMTP & IMAP Email Client</h2>
+    <p>Built a complete email client with sending (SMTP + TLS), receiving (IMAP + SSL), and a Tkinter GUI — demonstrating application-layer protocols in action.</p>
+  </div>
+
+  <div class="section open">
+    <div class="section-header" onclick="toggleSection(this)">
+      <span class="section-icon">📋</span>
+      <h3>Your Solution Overview</h3>
+      <span class="section-tag">Review</span>
+      <span class="chevron">▼</span>
+    </div>
+    <div class="section-body">
+      <div class="concept">
+        <h4>Architecture: 3 modules</h4>
+        <p><code>send_email.py</code> handles SMTP sending with TLS. <code>receive_email.py</code> handles IMAP receiving with SSL. <code>email_gui.py</code> provides the Tkinter GUI that ties them together with threaded operations for non-blocking UI.</p>
+      </div>
+      <div class="concept">
+        <h4>SMTP Sending Flow (send_email.py)</h4>
+        <p>Your code follows the standard SMTP handshake sequence: (1) Create a <code>MIMEMultipart</code> message with From, To, Subject headers and plain text body. (2) Connect to <code>smtp.gmail.com:587</code>. (3) Call <code>ehlo()</code> to greet the server and discover capabilities. (4) Call <code>starttls()</code> to upgrade to encrypted connection. (5) Call <code>ehlo()</code> again (required after STARTTLS). (6) <code>login()</code> with credentials. (7) <code>send_message()</code>. (8) <code>quit()</code>.</p>
+        <p>You included comprehensive error handling for authentication errors, connection errors, refused recipients, and timeouts.</p>
+      </div>
+      <div class="concept">
+        <h4>IMAP Receiving Flow (receive_email.py)</h4>
+        <p>Uses <code>IMAP4_SSL</code> to connect to <code>imap.gmail.com:993</code> (SSL from the start, unlike SMTP's STARTTLS upgrade). Workflow: <code>login()</code> → <code>select("INBOX")</code> → calculate last email ID → <code>fetch(id, "(RFC822)")</code> → parse with Python's <code>email</code> module → extract From/Subject/Date/Body → <code>close()</code> + <code>logout()</code>.</p>
+        <p>Your <code>get_email_body()</code> function handles both multipart and single-part messages, walking through MIME parts to find the <code>text/plain</code> body while skipping attachments.</p>
+      </div>
+      <div class="concept">
+        <h4>GUI Design (email_gui.py)</h4>
+        <p>Tkinter with the "clam" theme. Features: credential input (with password masking), configurable SMTP/IMAP servers and ports, compose area (To, Subject, Body), Send/Receive buttons, scrolled output log, status bar. Background threads keep the UI responsive during network operations via <code>root.after(0, callback)</code> for thread-safe GUI updates. Optional <code>plyer</code> push notifications on email receipt (bonus feature).</p>
+      </div>
+      <div class="diagram">SENDING (SMTP)                           RECEIVING (IMAP)
+──────────────────                       ──────────────────
+Client         smtp.gmail.com            Client         imap.gmail.com
+  |                 |                      |                 |
+  |── TCP:587 ─────►|                      |── TCP:993 (SSL)►|
+  |◄── 220 Ready ───|                      |◄── OK ──────────|
+  |── EHLO ────────►|                      |── LOGIN ───────►|
+  |◄── 250 caps ────|                      |◄── OK ──────────|
+  |── STARTTLS ────►|                      |── SELECT INBOX ►|
+  |◄── 220 Go TLS ──|                      |◄── N messages ──|
+  |═══ TLS Handshake ═|                    |── FETCH N ─────►|
+  |── EHLO ────────►|                      |◄── RFC822 data ─|
+  |── AUTH LOGIN ──►|                      |── CLOSE ───────►|
+  |── MAIL FROM ───►|                      |── LOGOUT ──────►|
+  |── RCPT TO ─────►|
+  |── DATA ────────►|
+  |── . (end) ─────►|
+  |── QUIT ────────►|</div>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="section-header" onclick="toggleSection(this)">
+      <span class="section-icon">🧠</span>
+      <h3>Core Concepts to Know Cold</h3>
+      <span class="section-tag">Theory</span>
+      <span class="chevron">▼</span>
+    </div>
+    <div class="section-body">
+      <div class="concept">
+        <h4>SMTP (Simple Mail Transfer Protocol)</h4>
+        <p>An <strong>application-layer push protocol</strong> (RFC 5321) used to <em>send</em> emails. The client pushes the message to the server. Operates on port 25 (unencrypted), 587 (submission with STARTTLS), or 465 (implicit SSL). Key SMTP commands: EHLO (greeting), AUTH (authentication), MAIL FROM, RCPT TO, DATA, QUIT. The <code>.</code> on a line by itself terminates the message body.</p>
+        <p><strong>STARTTLS vs implicit SSL:</strong> STARTTLS starts unencrypted on port 587, then upgrades to TLS mid-session. Port 465 starts encrypted from the first byte. STARTTLS is the recommended approach.</p>
+      </div>
+      <div class="concept">
+        <h4>IMAP (Internet Message Access Protocol)</h4>
+        <p>An <strong>application-layer pull protocol</strong> (RFC 3501) used to <em>retrieve</em> emails while keeping them on the server. IMAP supports folders, flags (read/unread), search, and partial fetches. Port 993 (SSL) or 143 (STARTTLS). Unlike POP3 which downloads and deletes, IMAP is designed for accessing mail from multiple devices.</p>
+      </div>
+      <div class="concept">
+        <h4>MIME (Multipurpose Internet Mail Extensions)</h4>
+        <p>Extends email beyond plain ASCII text. Adds support for attachments, HTML bodies, character encodings (UTF-8), and multipart messages. A multipart message has boundaries separating each part (text, HTML, attachments). Your code uses <code>MIMEMultipart</code> + <code>MIMEText</code> from Python's <code>email</code> library.</p>
+      </div>
+      <div class="concept">
+        <h4>TLS/SSL — Transport Layer Security</h4>
+        <p>Provides encryption, authentication, and integrity for the communication channel. TLS sits between the application layer and transport layer. The TLS handshake involves: (1) Client Hello with supported cipher suites, (2) Server Hello with chosen suite + certificate, (3) Key exchange (typically Diffie-Hellman), (4) Encrypted communication begins. Gmail requires TLS for both SMTP and IMAP.</p>
+      </div>
+      <div class="concept">
+        <h4>Email Delivery Path</h4>
+        <p>Sender's MUA (your client) → Sender's MSA (smtp.gmail.com) → MTA relay(s) → Recipient's MDA → Recipient's mailbox → Recipient's MUA (via IMAP/POP3). MUA = Mail User Agent (email client). MSA = Mail Submission Agent. MTA = Mail Transfer Agent (server-to-server relay). MDA = Mail Delivery Agent.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="section-header" onclick="toggleSection(this)">
+      <span class="section-icon">❓</span>
+      <h3>Expected Discussion Questions</h3>
+      <span class="section-tag">Q&A</span>
+      <span class="chevron">▼</span>
+    </div>
+    <div class="section-body">
+      <div class="qa-card">
+        <div class="qa-q" onclick="toggleQA(this)">
+          <span class="qa-badge">Q1</span>
+          <span class="qa-q-text">Walk me through the complete SMTP handshake in your code.</span>
+          <span class="qa-toggle">▼</span>
+        </div>
+        <div class="qa-a">(1) Open TCP connection to <code>smtp.gmail.com:587</code>. Server responds with <code>220</code> (ready). (2) Send <code>EHLO</code> — we identify ourselves and the server lists its capabilities (8BITMIME, SIZE, STARTTLS, etc.). (3) Send <code>STARTTLS</code> — server responds <code>220 Go ahead</code>, then we perform TLS handshake to encrypt the channel. (4) Send <code>EHLO</code> again — required because the connection is now different (encrypted). (5) <code>AUTH LOGIN</code> with base64-encoded credentials. (6) <code>MAIL FROM:&lt;sender@gmail.com&gt;</code>. (7) <code>RCPT TO:&lt;recipient@example.com&gt;</code>. (8) <code>DATA</code> — followed by the MIME message — ended by <code>\r\n.\r\n</code>. (9) <code>QUIT</code>.</div>
+      </div>
+      <div class="qa-card">
+        <div class="qa-q" onclick="toggleQA(this)">
+          <span class="qa-badge">Q2</span>
+          <span class="qa-q-text">Why do you call <code>ehlo()</code> twice — once before and once after STARTTLS?</span>
+          <span class="qa-toggle">▼</span>
+        </div>
+        <div class="qa-a">The first EHLO establishes the initial handshake and lets us discover the server supports STARTTLS. After STARTTLS upgrades the connection to TLS, the session state is reset — the server may advertise different capabilities over the encrypted channel (e.g., AUTH is typically only listed after TLS). RFC 3207 requires a new EHLO after STARTTLS.</div>
+      </div>
+      <div class="qa-card">
+        <div class="qa-q" onclick="toggleQA(this)">
+          <span class="qa-badge">Q3</span>
+          <span class="qa-q-text">What's the difference between SMTP and IMAP? When is each used?</span>
+          <span class="qa-toggle">▼</span>
+        </div>
+        <div class="qa-a"><strong>SMTP</strong> is a <em>push</em> protocol — used to <em>send</em> emails from client to server and between servers. <strong>IMAP</strong> is a <em>pull</em> protocol — used to <em>retrieve</em> emails from a mailbox server. SMTP handles the outgoing direction; IMAP handles the incoming direction. When you compose and send, your client uses SMTP. When you check your inbox, your client uses IMAP. They serve complementary roles and use different ports and command sets.</div>
+      </div>
+      <div class="qa-card">
+        <div class="qa-q" onclick="toggleQA(this)">
+          <span class="qa-badge">Q4</span>
+          <span class="qa-q-text">What is MIME and why is it needed?</span>
+          <span class="qa-toggle">▼</span>
+        </div>
+        <div class="qa-a">SMTP was originally designed for 7-bit ASCII text only. MIME extends email to support non-ASCII characters (UTF-8), attachments (images, PDFs), HTML formatting, and multipart messages (text + HTML + attachments in one email). In code, <code>MIMEMultipart</code> creates a container, and <code>MIMEText(body, "plain")</code> creates a text part attached to it. The Content-Type header tells the receiver how to interpret each part.</div>
+      </div>
+      <div class="qa-card">
+        <div class="qa-q" onclick="toggleQA(this)">
+          <span class="qa-badge">Q5</span>
+          <span class="qa-q-text">Why does your GUI use threads for sending and receiving?</span>
+          <span class="qa-toggle">▼</span>
+        </div>
+        <div class="qa-a">Network operations (connecting to SMTP/IMAP servers, sending data) take time and can block. Tkinter runs on a single main thread — if we do a network call on the main thread, the entire GUI freezes (buttons become unresponsive, window can't be moved or closed) until the operation completes. By spawning a daemon thread for each network operation, the main thread stays free to handle GUI events. Results are passed back to the main thread using <code>root.after(0, callback)</code> which is thread-safe.</div>
+      </div>
+      <div class="qa-card">
+        <div class="qa-q" onclick="toggleQA(this)">
+          <span class="qa-badge">Q6</span>
+          <span class="qa-q-text">What is STARTTLS and how does it differ from using port 465?</span>
+          <span class="qa-toggle">▼</span>
+        </div>
+        <div class="qa-a"><strong>STARTTLS (port 587):</strong> The connection starts unencrypted in plain text. After the initial EHLO, the client sends <code>STARTTLS</code> to upgrade the existing connection to TLS. This is called an <em>opportunistic</em> upgrade. <strong>Implicit TLS (port 465):</strong> The connection is encrypted from the very first byte — the TLS handshake happens immediately upon TCP connection, before any SMTP commands. Port 587 + STARTTLS is the current recommended standard (RFC 8314 reintroduced 465 but 587 remains dominant).</div>
+      </div>
+      <div class="qa-card">
+        <div class="qa-q" onclick="toggleQA(this)">
+          <span class="qa-badge">Q7</span>
+          <span class="qa-q-text">What is an App Password and why can't you use your regular Gmail password?</span>
+          <span class="qa-toggle">▼</span>
+        </div>
+        <div class="qa-a">Gmail with 2FA enabled doesn't allow direct login via SMTP/IMAP with your regular password. App Passwords are 16-character codes generated in your Google account that give specific applications access without exposing your main password or requiring 2FA for each login. This is a security measure — if the app password is compromised, you can revoke just that password without changing your main credentials.</div>
+      </div>
+      <div class="qa-card">
+        <div class="qa-q" onclick="toggleQA(this)">
+          <span class="qa-badge">Q8</span>
+          <span class="qa-q-text">Compare IMAP vs POP3.</span>
+          <span class="qa-toggle">▼</span>
+        </div>
+        <div class="qa-a"><strong>IMAP</strong> keeps emails on the server, supports folders, flags, search, and partial fetches — ideal for multi-device access. <strong>POP3</strong> downloads emails to the client and typically deletes them from the server (download-and-delete model). POP3 is simpler but doesn't sync across devices. IMAP is the modern standard for email retrieval.</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="section-header" onclick="toggleSection(this)">
+      <span class="section-icon">📺</span>
+      <h3>Recommended Videos</h3>
+      <span class="section-tag">Watch</span>
+      <span class="chevron">▼</span>
+    </div>
+    <div class="section-body">
+      <div class="video-grid">
+        <div class="video-card">
+          <iframe src="https://www.youtube.com/embed/PJo5yOtu7o8" loading="lazy" allow="accelerometer; autoplay; encrypted-media; gyroscope" allowfullscreen></iframe>
+          <div class="vid-label">SMTP Protocol Explained</div>
+        </div>
+        <div class="video-card">
+          <iframe src="https://www.youtube.com/embed/SBaARws0hy4" loading="lazy" allow="accelerometer; autoplay; encrypted-media; gyroscope" allowfullscreen></iframe>
+          <div class="vid-label">How Email Works (SMTP, IMAP, POP3)</div>
+        </div>
+        <div class="video-card">
+          <iframe src="https://www.youtube.com/embed/j9QmMEWmcfo" loading="lazy" allow="accelerometer; autoplay; encrypted-media; gyroscope" allowfullscreen></iframe>
+          <div class="vid-label">TLS Handshake Explained</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<!-- ╔═══════════════════════════════════════════════════════════╗ -->
+<!-- ║                    LAB 3 — WIRESHARK TCP                 ║ -->
+<!-- ╚═══════════════════════════════════════════════════════════╝ -->
+<div id="lab3" class="lab-panel">
+  <div class="lab-header">
+    <div class="lab-number" style="color:var(--lab3)">Lab 03</div>
+    <h2>Wireshark TCP Analysis</h2>
+    <p>Captured and analyzed TCP traffic using Wireshark — examining the 3-way handshake, sequence/acknowledgment numbers, RTT, flow control, congestion control, and throughput by uploading alice.txt to gaia.cs.umass.edu.</p>
+  </div>
+
+  <div class="section open">
+    <div class="section-header" onclick="toggleSection(this)">
+      <span class="section-icon">📋</span>
+      <h3>Your Solution Overview</h3>
+      <span class="section-tag">Review</span>
+      <span class="chevron">▼</span>
+    </div>
+    <div class="section-body">
+      <div class="concept">
+        <h4>Lab Setup</h4>
+        <p>You uploaded <code>alice.txt</code> (~152KB) to <code>http://gaia.cs.umass.edu/wireshark-labs/TCP-wireshark-file1.html</code> while capturing packets in Wireshark. The trace shows client IP <code>192.168.86.68:55639</code> communicating with server <code>128.119.245.12:80</code> (HTTP). 106 TCP segments were needed to transfer the file.</p>
+      </div>
+      <div class="concept">
+        <h4>Key Findings from Your Analysis</h4>
+        <p><strong>3-Way Handshake:</strong> Client SYN (raw ISN: 4236649187), Server SYN-ACK (raw ISN: 1068969752, ack: 4236649188 = client ISN + 1), Client ACK. Both sides advertised SACK Permitted in TCP options.</p>
+        <p><strong>RTT:</strong> ~28.6ms for the first data segments. EstimatedRTT formula: <code>EstimatedRTT = 0.875 × old + 0.125 × sample</code>. Both RTT samples were nearly identical (~28.6ms), so EstimatedRTT barely changed.</p>
+        <p><strong>Segment Size:</strong> All data segments were 1514 bytes at frame level → 1448 bytes TCP payload (1500 MTU − 20 IP − 32 TCP header with options).</p>
+        <p><strong>Receiver Window:</strong> ~131,712 bytes (with window scaling). Not the bottleneck — congestion window was the limiting factor during slow start.</p>
+        <p><strong>No Retransmissions:</strong> Clean trace, no packet loss detected.</p>
+        <p><strong>Delayed ACKs:</strong> Receiver typically acknowledged 2896 bytes (2 segments) at a time — consistent with TCP delayed ACK behavior.</p>
+        <p><strong>Throughput:</strong> ~1.16 MB/s ≈ 9.74 Mbps.</p>
+        <p><strong>Stevens Plot:</strong> Fleet sizes doubled each RTT (1→4→8→16) — classic slow start exponential growth. Transfer completed before exiting slow start. Fleet period ≈ 28ms ≈ RTT.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="section-header" onclick="toggleSection(this)">
+      <span class="section-icon">🧠</span>
+      <h3>Core Concepts to Know Cold</h3>
+      <span class="section-tag">Theory</span>
+      <span class="chevron">▼</span>
+    </div>
+    <div class="section-body">
+      <div class="concept">
+        <h4>TCP Sequence & Acknowledgment Numbers</h4>
+        <p><strong>Sequence Number:</strong> Identifies the first byte of data in this segment within the byte stream. Starts with a random ISN (Initial Sequence Number) chosen during the handshake. Each subsequent segment's seq = previous seq + data bytes sent.</p>
+        <p><strong>Acknowledgment Number:</strong> "I've received everything up to byte X − 1, please send me byte X next." It's <em>cumulative</em> — acknowledges all bytes up to that number. <code>Ack = Seq of received segment + length of data received</code>.</p>
+        <p><strong>SYN consumes 1 sequence number</strong> even though it carries no data. That's why the SYN-ACK's ack number = client ISN + 1.</p>
+      </div>
+      <div class="concept">
+        <h4>Flow Control vs Congestion Control</h4>
+        <p><strong>Flow Control:</strong> Prevents the sender from overwhelming the <em>receiver's buffer</em>. Controlled by the <strong>receiver window (rwnd)</strong> field in each ACK. The receiver advertises how much buffer space it has available.</p>
+        <p><strong>Congestion Control:</strong> Prevents the sender from overwhelming the <em>network</em>. Controlled by the <strong>congestion window (cwnd)</strong> maintained by the sender. The sender sends at the rate of <code>min(cwnd, rwnd)</code>.</p>
+        <table class="sheet-table">
+          <tr><th>Phase</th><th>Behavior</th><th>Trigger to Transition</th></tr>
+          <tr><td>Slow Start</td><td>cwnd doubles each RTT (exponential)</td><td>cwnd reaches ssthresh → switch to Congestion Avoidance</td></tr>
+          <tr><td>Congestion Avoidance</td><td>cwnd increases by 1 MSS per RTT (linear/additive)</td><td>Packet loss detected</td></tr>
+          <tr><td>On 3 Duplicate ACKs</td><td>ssthresh = cwnd/2, cwnd = ssthresh + 3 (Fast Recovery)</td><td>TCP Reno behavior</td></tr>
+          <tr><td>On Timeout</td><td>ssthresh = cwnd/2, cwnd = 1 MSS (restart slow start)</td><td>Most conservative response</td></tr>
+        </table>
+      </div>
+      <div class="concept">
+        <h4>RTT Estimation</h4>
+        <p><code>EstimatedRTT = (1 − α) × EstimatedRTT + α × SampleRTT</code> where α = 0.125. This is an <strong>exponentially weighted moving average (EWMA)</strong> — gives more weight to recent samples while smoothing outliers. The timeout interval is set as: <code>TimeoutInterval = EstimatedRTT + 4 × DevRTT</code>.</p>
+      </div>
+      <div class="concept">
+        <h4>MSS, MTU, and Segment Sizing</h4>
+        <p><strong>MTU (Maximum Transmission Unit):</strong> Largest frame the link layer can carry. Typically 1500 bytes for Ethernet.<br>
+        <strong>MSS (Maximum Segment Size):</strong> Largest chunk of <em>application data</em> TCP puts in one segment. MSS = MTU − IP header (20) − TCP header (20-60). In the trace: 1500 − 20 − 32 = 1448 bytes.</p>
+      </div>
+      <div class="concept">
+        <h4>Delayed ACKs</h4>
+        <p>Instead of ACKing every segment immediately, the receiver waits up to 500ms (or until a second segment arrives) before sending an ACK. This reduces ACK traffic. When the second segment arrives before the timer, the receiver ACKs both at once (cumulative ACK covering 2 segments = 2896 bytes in the trace).</p>
+      </div>
+      <div class="concept">
+        <h4>SACK (Selective Acknowledgment)</h4>
+        <p>Negotiated during the handshake via TCP options. Without SACK, a cumulative ACK can only say "I have everything up to byte X." With SACK, the receiver includes additional SACK blocks listing non-contiguous byte ranges it has received — letting the sender retransmit only the specific missing segments instead of everything after the gap.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="section-header" onclick="toggleSection(this)">
+      <span class="section-icon">❓</span>
+      <h3>Expected Discussion Questions</h3>
+      <span class="section-tag">Q&A</span>
+      <span class="chevron">▼</span>
+    </div>
+    <div class="section-body">
+      <div class="qa-card">
+        <div class="qa-q" onclick="toggleQA(this)">
+          <span class="qa-badge">Q1</span>
+          <span class="qa-q-text">How does the SYN-ACK's acknowledgment number relate to the SYN's sequence number?</span>
+          <span class="qa-toggle">▼</span>
+        </div>
+        <div class="qa-a">The SYN-ACK's ack number = client's ISN + 1. The SYN segment carries no data, but it "consumes" one sequence number (so the next expected byte from the client is ISN + 1). In the trace: client SYN seq=4236649187, server SYN-ACK ack=4236649188. This confirms to the client that the server received its SYN.</div>
+      </div>
+      <div class="qa-card">
+        <div class="qa-q" onclick="toggleQA(this)">
+          <span class="qa-badge">Q2</span>
+          <span class="qa-q-text">How did you identify retransmissions? Were there any?</span>
+          <span class="qa-toggle">▼</span>
+        </div>
+        <div class="qa-a">I checked three ways: (1) Look for duplicate sequence numbers — a retransmitted segment has the same seq as a previously sent one. (2) Wireshark automatically labels retransmissions with <code>[TCP Retransmission]</code> or <code>[TCP Fast Retransmission]</code> in the Info column. (3) Use the display filter <code>tcp.analysis.retransmission</code>. Result: no retransmissions in this trace — the network was clean.</div>
+      </div>
+      <div class="qa-card">
+        <div class="qa-q" onclick="toggleQA(this)">
+          <span class="qa-badge">Q3</span>
+          <span class="qa-q-text">Explain what the Stevens plot shows and what phase TCP was in.</span>
+          <span class="qa-toggle">▼</span>
+        </div>
+        <div class="qa-a">The Stevens plot (Time-Sequence Graph) plots sequence numbers vs time. Segments appear as "fleets" — groups of segments sent together. The fleet sizes doubled each RTT: ~1→4→8→16. This exponential doubling is the hallmark of <strong>slow start</strong>. The fleet spacing of ~28ms matches the RTT. The entire 152KB transfer completed during slow start — the file was small enough that TCP never transitioned to congestion avoidance (linear growth).</div>
+      </div>
+      <div class="qa-card">
+        <div class="qa-q" onclick="toggleQA(this)">
+          <span class="qa-badge">Q4</span>
+          <span class="qa-q-text">What is the receiver window and did it limit the sender?</span>
+          <span class="qa-toggle">▼</span>
+        </div>
+        <div class="qa-a">The receiver window (rwnd) was ~131,712 bytes (after applying the Window Scale factor negotiated in the handshake). It did <strong>not</strong> throttle the sender. During slow start, the congestion window (cwnd) was much smaller than rwnd. The sender rate was limited by cwnd, not rwnd. The effective sending rate = min(cwnd, rwnd), and cwnd was the bottleneck.</div>
+      </div>
+      <div class="qa-card">
+        <div class="qa-q" onclick="toggleQA(this)">
+          <span class="qa-badge">Q5</span>
+          <span class="qa-q-text">Calculate the throughput and explain what determines it.</span>
+          <span class="qa-toggle">▼</span>
+        </div>
+        <div class="qa-a">Throughput = Total data / Transfer time = 153,425 bytes / 0.126 seconds ≈ 1.22 MB/s ≈ 9.74 Mbps. The throughput is determined by: (1) cwnd growth rate during slow start, (2) RTT (shorter RTT = faster cwnd growth = higher throughput), (3) available bandwidth on the path, (4) packet loss rate (no loss = smooth growth). For short transfers like this, slow start dominance means throughput is primarily limited by RTT and the number of RTTs needed to ramp up.</div>
+      </div>
+      <div class="qa-card">
+        <div class="qa-q" onclick="toggleQA(this)">
+          <span class="qa-badge">Q6</span>
+          <span class="qa-q-text">What is the difference between flow control and congestion control?</span>
+          <span class="qa-toggle">▼</span>
+        </div>
+        <div class="qa-a"><strong>Flow control</strong> protects the <em>receiver</em> — the receiver advertises how much buffer space it has (rwnd) so the sender doesn't overflow it. It's an end-to-end mechanism between sender and receiver. <strong>Congestion control</strong> protects the <em>network</em> — the sender probes for available bandwidth by adjusting cwnd. It responds to network signals (packet loss, delays) to avoid causing congestion. The sender transmits at min(cwnd, rwnd).</div>
+      </div>
+
+      <div class="callout critical">
+        <span class="callout-icon">🎯</span>
+        <div><strong>Critical for the oral:</strong> Be able to draw the TCP state machine (CLOSED → SYN_SENT → ESTABLISHED → FIN_WAIT → TIME_WAIT → CLOSED) and explain each transition. Prof. Noha may ask you to trace through a Wireshark capture and identify the handshake, data transfer, and teardown phases by their flags.</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="section-header" onclick="toggleSection(this)">
+      <span class="section-icon">📺</span>
+      <h3>Recommended Videos</h3>
+      <span class="section-tag">Watch</span>
+      <span class="chevron">▼</span>
+    </div>
+    <div class="section-body">
+      <div class="video-grid">
+        <div class="video-card">
+          <iframe src="https://www.youtube.com/embed/F27PLin3TV0" loading="lazy" allow="accelerometer; autoplay; encrypted-media; gyroscope" allowfullscreen></iframe>
+          <div class="vid-label">TCP Congestion Control (Slow Start, AIMD)</div>
+        </div>
+        <div class="video-card">
+          <iframe src="https://www.youtube.com/embed/n2AiJdMiVmo" loading="lazy" allow="accelerometer; autoplay; encrypted-media; gyroscope" allowfullscreen></iframe>
+          <div class="vid-label">TCP Flow Control & Sliding Window</div>
+        </div>
+        <div class="video-card">
+          <iframe src="https://www.youtube.com/embed/7IS7gigunyI" loading="lazy" allow="accelerometer; autoplay; encrypted-media; gyroscope" allowfullscreen></iframe>
+          <div class="vid-label">Wireshark TCP Analysis Tutorial</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<!-- ╔═══════════════════════════════════════════════════════════╗ -->
+<!-- ║                    LAB 4 — RUDP + HTTP                   ║ -->
+<!-- ╚═══════════════════════════════════════════════════════════╝ -->
+<div id="lab4" class="lab-panel">
+  <div class="lab-header">
+    <div class="lab-number" style="color:var(--lab4)">Lab 04</div>
+    <h2>Reliable UDP (RUDP) + HTTP/1.0</h2>
+    <p>Implemented TCP-like reliability on top of raw UDP (stop-and-wait, checksums, retransmission, handshake flags) and built an HTTP/1.0 server/client stack on top of it. This is the most complex lab and ties together everything from the course.</p>
+  </div>
+
+  <div class="callout info">
+    <span class="callout-icon">⭐</span>
+    <div><strong>This is the lab Prof. Noha will likely focus on most</strong> — it integrates transport layer reliability (rdt 3.0), application layer protocols (HTTP), and packet-level concepts (checksums, flags, sequence numbers). Be ready for deep-dive questions here.</div>
+  </div>
+
+  <div class="section open">
+    <div class="section-header" onclick="toggleSection(this)">
+      <span class="section-icon">📋</span>
+      <h3>Your Solution Overview</h3>
+      <span class="section-tag">Review</span>
+      <span class="chevron">▼</span>
+    </div>
+    <div class="section-body">
+      <div class="concept">
+        <h4>Architecture: 2 Layers, 7 Files</h4>
+        <p><strong>Transport Layer</strong> (<code>src/transport/</code>): <code>packet.py</code> (PDU structure + checksum integration), <code>checksum.py</code> (16-bit one's complement), <code>network_simulation.py</code> (packet loss + corruption), <code>rudp_socket.py</code> (the main reliable socket with connect/accept/send/recv/close).</p>
+        <p><strong>Application Layer</strong> (<code>src/application/</code>): <code>http_message.py</code> (HTTPRequest/HTTPResponse parsing + building), <code>http_server.py</code> (HTTP server over RUDP), <code>http_client.py</code> (HTTP client over RUDP), <code>http_tcp_server.py</code> (bonus TCP server for browsers).</p>
+      </div>
+      <div class="diagram">┌──────────────────────────────────────────────────────────────┐
+│                    APPLICATION LAYER                         │
+│                                                              │
+│  HTTPClient ─────────────────────────── HTTPServer           │
+│       │                                      │               │
+│  HTTPRequest / HTTPResponse (build + parse)  │               │
+└───────┼──────────────────────────────────────┼───────────────┘
+        │                                      │
+┌───────┼──────────────────────────────────────┼───────────────┐
+│       │          TRANSPORT LAYER (RUDP)      │               │
+│  RUDPSocket.connect()               RUDPSocket.accept()      │
+│  RUDPSocket.send()                  RUDPSocket.recv()         │
+│  RUDPSocket.close()                 RUDPSocket.close()        │
+│       │                                      │               │
+│  Packet.pack() ──────────────────── Packet.unpack()          │
+│  calculate_checksum()               verify checksum           │
+│  simulate_loss() / corrupt()        handle corruption         │
+└──────────────────────────────────────────────────────────────┘
+        │                                      │
+        └────────── UDP (SOCK_DGRAM) ──────────┘</div>
+
+      <div class="concept">
+        <h4>Packet Header (11 bytes)</h4>
+        <p>Format: <code>!IIBH</code> = network byte order. Fields: <code>seq_num</code> (uint32, 4B) — position in byte stream. <code>ack_num</code> (uint32, 4B) — next expected byte. <code>flags</code> (uint8, 1B) — SYN=0b0001, ACK=0b0010, FIN=0b0100, SYNACK=0b0011. <code>checksum</code> (uint16, 2B) — 16-bit one's complement for error detection. Data follows the header as variable-length bytes.</p>
+      </div>
+
+      <div class="concept">
+        <h4>Checksum Algorithm</h4>
+        <p>The same one's complement checksum used by real UDP/TCP/IP: treat data as 16-bit words, sum them with end-around carry, then take the bitwise NOT. To pack: zero out checksum field → compute over header+data → repack with real value. To verify: receiver recomputes — mismatch means corruption → discard packet.</p>
+      </div>
+
+      <div class="concept">
+        <h4>Stop-and-Wait (rdt 3.0)</h4>
+        <p><code>_reliable_send()</code>: Send one packet → wait up to 50ms for correct ACK → if timeout or wrong ACK, retransmit. Max 50 retries before <code>ConnectionError</code>. Corrupt packets (failed checksum) are silently discarded via <code>ValueError</code> from <code>Packet.unpack()</code>.</p>
+        <p><code>recv()</code>: Wait for packet with <code>seq_num == expected_seq</code>. If correct, burst 3 ACKs (redundancy against ACK loss) and return data. If duplicate/out-of-order, re-ACK but discard the data.</p>
+      </div>
+
+      <div class="concept">
+        <h4>Connection Lifecycle</h4>
+        <p><strong>Open (3-way handshake):</strong> Client sends SYN(seq=X) → Server sends SYNACK(seq=Y, ack=X+1) → Client sends ACK(ack=Y+1). Both sides synchronize ISNs.</p>
+        <p><strong>Data Transfer:</strong> Send data chunks (1024 bytes max each), stop-and-wait for each. Seq increments by chunk length.</p>
+        <p><strong>Close (simplified):</strong> Send FIN → wait for ACK → drain for 100ms → close socket.</p>
+      </div>
+
+      <div class="concept">
+        <h4>HTTP/1.0 Implementation</h4>
+        <p>One connection per request (connect → send request → receive response → close). GET serves files from <code>www/</code> with path traversal protection. POST echoes body or delegates to registered handlers. Status codes: 200 OK, 404 Not Found, 400 Bad Request. Request/response parsing splits on <code>\r\n\r\n</code> and uses <code>Content-Length</code> to know when the body is complete.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="section-header" onclick="toggleSection(this)">
+      <span class="section-icon">🧠</span>
+      <h3>Core Concepts to Know Cold</h3>
+      <span class="section-tag">Theory</span>
+      <span class="chevron">▼</span>
+    </div>
+    <div class="section-body">
+      <div class="concept">
+        <h4>rdt 1.0 → rdt 3.0 Evolution (Textbook)</h4>
+        <table class="sheet-table">
+          <tr><th>Version</th><th>Channel Model</th><th>Mechanisms Added</th></tr>
+          <tr><td>rdt 1.0</td><td>Perfect (no errors, no loss)</td><td>None — just send and receive</td></tr>
+          <tr><td>rdt 2.0</td><td>Bit errors possible</td><td>Checksum + ACK/NAK</td></tr>
+          <tr><td>rdt 2.1</td><td>Bit errors + ACK corruption</td><td>Sequence numbers (0/1 alternating)</td></tr>
+          <tr><td>rdt 2.2</td><td>Same as 2.1</td><td>NAK-free — duplicate ACK replaces NAK</td></tr>
+          <tr><td>rdt 3.0</td><td>Bit errors + packet loss</td><td>Timeout + retransmission timer</td></tr>
+        </table>
+        <p>Your RUDP implements <strong>rdt 3.0</strong> with 32-bit sequence numbers (instead of alternating 0/1), making it more like real TCP.</p>
+      </div>
+      <div class="concept">
+        <h4>Stop-and-Wait vs Go-Back-N vs Selective Repeat</h4>
+        <table class="sheet-table">
+          <tr><th>Protocol</th><th>Window Size</th><th>On Loss</th><th>Receiver Buffer</th></tr>
+          <tr><td>Stop-and-Wait</td><td>1</td><td>Retransmit current packet</td><td>None needed</td></tr>
+          <tr><td>Go-Back-N</td><td>N</td><td>Retransmit from lost packet onward</td><td>None (discard out-of-order)</td></tr>
+          <tr><td>Selective Repeat</td><td>N</td><td>Retransmit only lost packet</td><td>Buffer out-of-order packets</td></tr>
+        </table>
+        <p>Your lab uses stop-and-wait (simplest but lowest utilization). In practice, TCP uses a hybrid of Go-Back-N and Selective Repeat (with SACK).</p>
+      </div>
+      <div class="concept">
+        <h4>Why Does the Checksum Zero the Field First?</h4>
+        <p>The checksum covers the <em>entire</em> packet including the checksum field itself. To compute it, you set the checksum field to 0 in the bytes, compute the sum over those bytes, then insert the result. To verify, the receiver does the same process — if the received checksum matches the recomputed one, the packet is intact. Alternatively, summing the entire packet (including the checksum) should yield 0xFFFF if intact.</p>
+      </div>
+      <div class="concept">
+        <h4>HTTP/1.0 vs HTTP/1.1</h4>
+        <table class="sheet-table">
+          <tr><th>Feature</th><th>HTTP/1.0</th><th>HTTP/1.1</th></tr>
+          <tr><td>Connections</td><td>One request per connection</td><td>Persistent (keep-alive default)</td></tr>
+          <tr><td>Host header</td><td>Optional</td><td>Mandatory</td></tr>
+          <tr><td>Chunked transfer</td><td>No</td><td>Yes</td></tr>
+          <tr><td>Pipelining</td><td>No</td><td>Supported (rarely used)</td></tr>
+        </table>
+        <p>Lab uses HTTP/1.0 because one connection = one request/response maps cleanly to one RUDP connect-send-recv-close cycle.</p>
+      </div>
+      <div class="concept">
+        <h4>The Four Types of Network Delay</h4>
+        <p><strong>Processing delay</strong> — router examines header, determines next hop. <strong>Queuing delay</strong> — packet waits in router buffer (variable, depends on traffic). <strong>Transmission delay</strong> — L/R = packet length / link bandwidth — time to push all bits onto wire. <strong>Propagation delay</strong> — d/s = distance / signal speed — time for a bit to travel through the medium. Total delay = sum of all four at each hop. RTT ≈ 2 × (sum of delays along the path).</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="section-header" onclick="toggleSection(this)">
+      <span class="section-icon">❓</span>
+      <h3>Expected Discussion Questions</h3>
+      <span class="section-tag">Q&A</span>
+      <span class="chevron">▼</span>
+    </div>
+    <div class="section-body">
+
+      <div class="qa-card">
+        <div class="qa-q" onclick="toggleQA(this)">
+          <span class="qa-badge">Q1</span>
+          <span class="qa-q-text">Walk me through what happens when a packet is corrupted in your implementation.</span>
+          <span class="qa-toggle">▼</span>
+        </div>
+        <div class="qa-a">(1) <code>_send_raw()</code> flips a random bit via <code>corrupt_packet()</code> (XOR the LSB of a random byte). (2) The corrupted bytes arrive at the receiver. (3) <code>Packet.unpack()</code> extracts the header, zeroes the checksum field, recomputes the checksum over the modified bytes. (4) The recomputed checksum doesn't match the received checksum → <code>ValueError</code> raised. (5) The caller catches the exception silently and continues waiting. (6) The sender's 50ms timeout fires without receiving an ACK. (7) The sender retransmits the exact same packet. (8) On success, the receiver gets the intact packet, verifies checksum, and sends ACK.</div>
+      </div>
+
+      <div class="qa-card">
+        <div class="qa-q" onclick="toggleQA(this)">
+          <span class="qa-badge">Q2</span>
+          <span class="qa-q-text">How does your receiver handle duplicate packets?</span>
+          <span class="qa-toggle">▼</span>
+        </div>
+        <div class="qa-a">Each <code>RUDPSocket</code> tracks <code>self.expected_seq</code>. In <code>recv()</code>, when a packet arrives: if <code>pkt.seq_num == expected_seq</code>, it's new data — accept it, update <code>expected_seq</code>, send burst ACK, return data to application. If <code>pkt.seq_num != expected_seq</code>, it's a duplicate or out-of-order — send an ACK (so the sender stops retransmitting) but do <strong>not</strong> return the data to the application. The application layer never sees duplicates.</div>
+      </div>
+
+      <div class="qa-card">
+        <div class="qa-q" onclick="toggleQA(this)">
+          <span class="qa-badge">Q3</span>
+          <span class="qa-q-text">Why does the receiver send 3 ACKs instead of 1?</span>
+          <span class="qa-toggle">▼</span>
+        </div>
+        <div class="qa-a">ACKs have no ACK of their own — if a single ACK is lost, the sender times out and retransmits unnecessarily. By sending 3 copies, the probability that all 3 are lost is much lower (p³ instead of p). This is a pragmatic trick to reduce unnecessary retransmissions at the cost of a small amount of extra bandwidth. In real TCP, cumulative ACKs and the sender's retransmission timer handle this differently.</div>
+      </div>
+
+      <div class="qa-card">
+        <div class="qa-q" onclick="toggleQA(this)">
+          <span class="qa-badge">Q4</span>
+          <span class="qa-q-text">Explain the ACK number calculation: <code>ack_num = seq_num + max(len(data), 1)</code>. Why <code>max(_, 1)</code>?</span>
+          <span class="qa-toggle">▼</span>
+        </div>
+        <div class="qa-a">For data packets, the ACK number is the next expected sequence number: <code>seq_num + len(data)</code>. For control packets like SYN and FIN that carry no data, <code>len(data) = 0</code> — but these packets still need to "consume" a sequence number (just like real TCP). The <code>max(0, 1) = 1</code> ensures that SYN/FIN advance the sequence number by 1, so the other side knows the control packet was acknowledged.</div>
+      </div>
+
+      <div class="qa-card">
+        <div class="qa-q" onclick="toggleQA(this)">
+          <span class="qa-badge">Q5</span>
+          <span class="qa-q-text">Why does the server create a new <code>RUDPSocket</code> for each connection?</span>
+          <span class="qa-toggle">▼</span>
+        </div>
+        <div class="qa-a">HTTP/1.0 is one-request-per-connection. RUDP maintains state: <code>seq_num</code>, <code>expected_seq</code>, <code>target_addr</code>. Each client interaction needs fresh state — otherwise leftover sequence numbers from the previous connection could cause confusion (old ACKs accepted for new data, etc.). This mirrors how real TCP's <code>accept()</code> returns a new socket with fresh state per client.</div>
+      </div>
+
+      <div class="qa-card">
+        <div class="qa-q" onclick="toggleQA(this)">
+          <span class="qa-badge">Q6</span>
+          <span class="qa-q-text">How does your HTTP server know when the complete request has arrived?</span>
+          <span class="qa-toggle">▼</span>
+        </div>
+        <div class="qa-a"><code>_recv_http_request()</code> accumulates chunks from <code>rudp.recv()</code> into a buffer. It keeps reading until: (1) It finds <code>\r\n\r\n</code> — the blank line separating headers from body. (2) It parses the <code>Content-Length</code> header from the headers section. (3) It checks if the buffer has at least <code>header_end + 4 + Content-Length</code> bytes. For GET requests, Content-Length is 0, so it stops right after the headers. For POST, it keeps reading until the full body arrives.</div>
+      </div>
+
+      <div class="qa-card">
+        <div class="qa-q" onclick="toggleQA(this)">
+          <span class="qa-badge">Q7</span>
+          <span class="qa-q-text">Why are sequence numbers initialized randomly?</span>
+          <span class="qa-toggle">▼</span>
+        </div>
+        <div class="qa-a">To prevent <strong>old (stale) packets</strong> from a previous connection being mistakenly accepted by a new connection that happens to use the same ports. If both connections started at seq=0, a delayed packet from connection #1 could arrive during connection #2 with a valid sequence number and be accepted as new data. Random ISNs make this collision extremely unlikely. This mirrors TCP's ISN randomization (which also has a security motivation — preventing sequence prediction attacks).</div>
+      </div>
+
+      <div class="qa-card">
+        <div class="qa-q" onclick="toggleQA(this)">
+          <span class="qa-badge">Q8</span>
+          <span class="qa-q-text">What is the path traversal protection in your server and why is it needed?</span>
+          <span class="qa-toggle">▼</span>
+        </div>
+        <div class="qa-a">Without protection, a request like <code>GET /../../../etc/passwd</code> could escape the web root directory and access system files. The code does: <code>file_path = os.path.normpath(os.path.join(webroot, path.lstrip("/")))</code> then checks <code>file_path.startswith(webroot)</code>. <code>normpath</code> resolves <code>../</code> sequences, and the <code>startswith</code> check ensures the resolved path stays inside <code>www/</code>. If it escapes, return 404.</div>
+      </div>
+
+      <div class="qa-card">
+        <div class="qa-q" onclick="toggleQA(this)">
+          <span class="qa-badge">Q9</span>
+          <span class="qa-q-text">Can your RUDP checksum detect all errors? Why or why not?</span>
+          <span class="qa-toggle">▼</span>
+        </div>
+        <div class="qa-a">No. The 16-bit one's complement checksum can be fooled by specific error patterns. If two bit flips happen in the same bit position of two different 16-bit words (one adds and one subtracts the same amount), they cancel out and the checksum remains valid despite corruption. Checksums provide <strong>error detection</strong> (not correction), and they're a probabilistic guarantee — most errors are caught, but not all. For stronger guarantees, you'd use CRCs (used by Ethernet at the link layer).</div>
+      </div>
+
+      <div class="qa-card">
+        <div class="qa-q" onclick="toggleQA(this)">
+          <span class="qa-badge">Q10</span>
+          <span class="qa-q-text">Compare your RUDP to real TCP — what's missing?</span>
+          <span class="qa-toggle">▼</span>
+        </div>
+        <div class="qa-a">Missing: (1) <strong>Sliding window / pipelining</strong> — we use stop-and-wait (window=1), TCP uses a window of N. (2) <strong>Flow control</strong> — no receiver window advertisement. (3) <strong>Congestion control</strong> — no slow start, AIMD, fast retransmit/recovery. (4) <strong>Full duplex</strong> — our send/recv is half-duplex. (5) <strong>Proper 4-way teardown</strong> — we use simplified FIN/ACK. (6) <strong>Nagle's algorithm</strong>, delayed ACKs, SACK, window scaling, timestamps. The lab intentionally strips TCP down to its essentials to make the mechanisms visible.</div>
+      </div>
+
+      <div class="callout warn">
+        <span class="callout-icon">⚡</span>
+        <div><strong>Killer oral technique:</strong> If Prof. Noha asks about any mechanism, trace it through your actual code. For example: "When I call <code>client.get('/', ...)</code>, it creates an RUDPSocket, calls <code>connect()</code> which sends a SYN packet via <code>_reliable_send()</code>, then waits for SYNACK. The SYNACK's ack_num confirms the server received the SYN. Then <code>send()</code> chunks the HTTP request into 1024-byte pieces..."</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="section-header" onclick="toggleSection(this)">
+      <span class="section-icon">📺</span>
+      <h3>Recommended Videos</h3>
+      <span class="section-tag">Watch</span>
+      <span class="chevron">▼</span>
+    </div>
+    <div class="section-body">
+      <div class="video-grid">
+        <div class="video-card">
+          <iframe src="https://www.youtube.com/embed/KY2rFMZuv4U" loading="lazy" allow="accelerometer; autoplay; encrypted-media; gyroscope" allowfullscreen></iframe>
+          <div class="vid-label">Reliable Data Transfer (rdt 3.0)</div>
+        </div>
+        <div class="video-card">
+          <iframe src="https://www.youtube.com/embed/Dxcc6ycZ73M" loading="lazy" allow="accelerometer; autoplay; encrypted-media; gyroscope" allowfullscreen></iframe>
+          <div class="vid-label">Go-Back-N vs Selective Repeat</div>
+        </div>
+        <div class="video-card">
+          <iframe src="https://www.youtube.com/embed/0OscRNhxlFw" loading="lazy" allow="accelerometer; autoplay; encrypted-media; gyroscope" allowfullscreen></iframe>
+          <div class="vid-label">HTTP/1.0 vs HTTP/1.1 vs HTTP/2</div>
+        </div>
+        <div class="video-card">
+          <iframe src="https://www.youtube.com/embed/3QnDFjFsTbk" loading="lazy" allow="accelerometer; autoplay; encrypted-media; gyroscope" allowfullscreen></iframe>
+          <div class="vid-label">Internet Checksum Explained</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+</main>
+
+<!-- ═══════════════════════════════════════════════════ FOOTER ═══ -->
+<footer class="site-footer">
+  CC451 · Computer Networks · Prof. Noha Oral Discussion Prep<br>
+  Good luck, Omar! 🎯 You've got this.
+</footer>
+
+<script>
+// ── Tab switching ──
+function switchTab(tabId) {
+  document.querySelectorAll('.lab-panel').forEach(p => p.classList.remove('active'));
+  document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+  document.getElementById(tabId).classList.add('active');
+  event.currentTarget.classList.add('active');
+  window.scrollTo({ top: document.querySelector('.tab-nav').offsetTop - 10, behavior: 'smooth' });
+}
+
+// ── Section accordion ──
+function toggleSection(header) {
+  header.parentElement.classList.toggle('open');
+}
+
+// ── Q&A toggle ──
+function toggleQA(qDiv) {
+  qDiv.parentElement.classList.toggle('open');
+}
+
+// ── Open first section of each lab by default ──
+// (Already handled with class="open" in HTML)
+</script>
+</body>
+</html>
